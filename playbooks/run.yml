@@ -33,16 +33,16 @@
 #         name: cloud-native-appdev-lab-role
 #         tasks_from: app-regui
 
-# - name: keycloak
-#   hosts:
-#     - work.lan
-#   vars:
-#     appstate: started
-#     recreate: false
-#   tasks:
-#     - include_role:
-#         name: cloud-native-appdev-lab-role
-#         tasks_from: app-keycloak
+- name: keycloak
+  hosts:
+    - work.lan
+  vars:
+    appstate: started
+    recreate: true
+  tasks:
+    - include_role:
+        name: cloud-native-appdev-lab-role
+        tasks_from: app-keycloak
 
 # - name: portainer
 #   hosts:
@@ -178,3 +178,32 @@
 #         name: cloud-native-appdev-lab-role
 #         tasks_from: app-adminer
 
+# - name: debug
+#   hosts:
+#     - work.lan
+#   tasks:
+#     - name: login
+#       ansible.builtin.uri:
+#         url: https://keycloak.work.lan/realms/master/protocol/openid-connect/token
+#         method: POST
+#         body_format: form-urlencoded
+#         body:
+#           grant_type: password
+#           client_id: admin-cli
+#           username: admin
+#           password: password
+#       register: login
+#     - name: debug
+#       ansible.builtin.debug:
+#         msg: "{{ login.json.access_token }}"
+#     - name: get master
+#       ansible.builtin.uri:
+#         url: https://keycloak.work.lan/admin/realms/master
+#         method: GET
+#         headers: 
+#           Authorization: "Bearer {{ login.json.access_token }}"
+#       register: masterjson
+#     - name: debug
+#       ansible.builtin.debug:
+#         msg: "{{ masterjson.json }}"
+      
