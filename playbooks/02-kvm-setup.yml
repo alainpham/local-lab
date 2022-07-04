@@ -1,0 +1,9 @@
+---
+- name: kvm
+  hosts:
+    - work.lan
+  tasks:
+    - name: kvm scripts
+      include_role:
+        name: local-lab-role
+        tasks_from: kvm-setup

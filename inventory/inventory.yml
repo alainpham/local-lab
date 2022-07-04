@@ -1,0 +1,9 @@
+---
+x86:
+  hosts:
+    work.lan:
+      ansible_connection: ssh
+      ansible_user: apham
+      ansible_python_interpreter: /usr/bin/python3
+      arch: linux-amd64
+  

@@ -1,0 +1,180 @@
+---
+
+- name: traefik
+  hosts:
+    - work.lan
+  vars:
+    appstate: started
+    recreate: true
+  tasks:
+    - include_role:
+        name: local-lab-role
+        tasks_from: app-traefik
+
+- name: registry
+  hosts:
+    - work.lan
+  vars:
+    appstate: started
+    recreate: false
+  tasks:
+    - include_role:
+        name: local-lab-role
+        tasks_from: app-registry
+
+- name: regui
+  hosts:
+    - work.lan
+  vars:
+    appstate: started
+    recreate: false
+  tasks:
+    - include_role:
+        name: local-lab-role
+        tasks_from: app-regui
+
+- name: keycloak
+  hosts:
+    - work.lan
+  vars:
+    appstate: started
+    recreate: false
+  tasks:
+    - include_role:
+        name: local-lab-role
+        tasks_from: app-keycloak
+
+- name: portainer
+  hosts:
+    - work.lan
+  vars:
+    appstate: started
+    recreate: false
+  tasks:
+    - include_role:
+        name: local-lab-role
+        tasks_from: app-portainer
+
+- name: nexus
+  hosts:
+    - work.lan
+  vars:
+    appstate: started
+    recreate: false
+  tasks:
+    - include_role:
+        name: local-lab-role
+        tasks_from: app-nexus
+
+
+- name: prometheus
+  hosts:
+    - work.lan
+  vars:
+    appstate: started
+    recreate: false
+  tasks:
+    - include_role:
+        name: local-lab-role
+        tasks_from: app-prometheus
+
+- name: grafana-agent
+  hosts:
+    - work.lan
+  vars:
+    appstate: absent
+    recreate: false
+  tasks:
+    - include_role:
+        name: local-lab-role
+        tasks_from: app-grafana-agent
+
+- name: grafana
+  hosts:
+    - work.lan
+  vars:
+    appstate: started
+    recreate: false
+  tasks:
+    - include_role:
+        name: local-lab-role
+        tasks_from: app-grafana
+
+- name: grafana-enterprise
+  hosts:
+    - work.lan
+  vars:
+    appstate: started
+    recreate: true
+  tasks:
+    - include_role:
+        name: local-lab-role
+        tasks_from: app-grafana-enterprise
+
+
+- name: loki
+  hosts:
+    - work.lan
+  vars:
+    appstate: started
+    recreate: false
+  tasks:
+    - include_role:
+        name: local-lab-role
+        tasks_from: app-loki
+
+- name: promtail
+  hosts:
+    - work.lan
+  vars:
+    appstate: started
+    recreate: false
+  tasks:
+    - include_role:
+        name: local-lab-role
+        tasks_from: app-promtail
+
+- name: kafka
+  hosts:
+    - work.lan
+  vars:
+    appstate: started
+    recreate: false
+  tasks:
+    - include_role:
+        name: local-lab-role
+        tasks_from: app-kafka
+
+- name: artemis
+  hosts:
+    - work.lan
+  vars:
+    appstate: started
+    recreate: false
+  tasks:
+    - include_role:
+        name: local-lab-role
+        tasks_from: app-artemis
+
+- name: postgres
+  hosts:
+    - work.lan
+  vars:
+    appstate: started
+    recreate: false
+  tasks:
+    - include_role:
+        name: local-lab-role
+        tasks_from: app-postgres
+
+- name: adminer
+  hosts:
+    - work.lan
+  vars:
+    appstate: started
+    recreate: false
+  tasks:
+    - include_role:
+        name: local-lab-role
+        tasks_from: app-adminer
+

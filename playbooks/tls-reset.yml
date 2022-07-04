@@ -1,0 +1,9 @@
+---
+- name: tls
+  hosts:
+    - work.lan
+  tasks:
+    - name: install
+      include_role:
+        name: local-lab-role
+        tasks_from: tls-reset

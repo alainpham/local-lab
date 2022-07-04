@@ -1,0 +1,6 @@
+[submodule "local-lab/group_vars"]
+	path = playbooks/group_vars
+	url = git@github.com:alainpham/dev-environment-private.git
+[submodule "cloud-native-appdev-lab-role"]
+	path = cloud-native-appdev-lab-role
+	url = https://github.com/alainpham/cloud-native-appdev-lab-role.git
