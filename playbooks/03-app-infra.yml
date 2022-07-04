@@ -82,7 +82,7 @@
   hosts:
     - work.lan
   vars:
-    appstate: absent
+    appstate: started
     recreate: false
   tasks:
     - include_role:
