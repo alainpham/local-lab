@@ -5,5 +5,5 @@
   tasks:
     - name: install
       include_role:
-        name: local-lab-role
+        name: cloud-native-appdev-lab-role
         tasks_from: tls-reset

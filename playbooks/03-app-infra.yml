@@ -8,7 +8,7 @@
     recreate: true
   tasks:
     - include_role:
-        name: local-lab-role
+        name: cloud-native-appdev-lab-role
         tasks_from: app-traefik
 
 - name: registry
@@ -19,7 +19,7 @@
     recreate: false
   tasks:
     - include_role:
-        name: local-lab-role
+        name: cloud-native-appdev-lab-role
         tasks_from: app-registry
 
 - name: regui
@@ -30,7 +30,7 @@
     recreate: false
   tasks:
     - include_role:
-        name: local-lab-role
+        name: cloud-native-appdev-lab-role
         tasks_from: app-regui
 
 - name: keycloak
@@ -41,7 +41,7 @@
     recreate: false
   tasks:
     - include_role:
-        name: local-lab-role
+        name: cloud-native-appdev-lab-role
         tasks_from: app-keycloak
 
 - name: portainer
@@ -52,7 +52,7 @@
     recreate: false
   tasks:
     - include_role:
-        name: local-lab-role
+        name: cloud-native-appdev-lab-role
         tasks_from: app-portainer
 
 - name: nexus
@@ -63,7 +63,7 @@
     recreate: false
   tasks:
     - include_role:
-        name: local-lab-role
+        name: cloud-native-appdev-lab-role
         tasks_from: app-nexus
 
 
@@ -75,7 +75,7 @@
     recreate: false
   tasks:
     - include_role:
-        name: local-lab-role
+        name: cloud-native-appdev-lab-role
         tasks_from: app-prometheus
 
 - name: grafana-agent
@@ -86,7 +86,7 @@
     recreate: false
   tasks:
     - include_role:
-        name: local-lab-role
+        name: cloud-native-appdev-lab-role
         tasks_from: app-grafana-agent
 
 - name: grafana
@@ -97,7 +97,7 @@
     recreate: false
   tasks:
     - include_role:
-        name: local-lab-role
+        name: cloud-native-appdev-lab-role
         tasks_from: app-grafana
 
 - name: grafana-enterprise
@@ -108,7 +108,7 @@
     recreate: true
   tasks:
     - include_role:
-        name: local-lab-role
+        name: cloud-native-appdev-lab-role
         tasks_from: app-grafana-enterprise
 
 
@@ -120,7 +120,7 @@
     recreate: false
   tasks:
     - include_role:
-        name: local-lab-role
+        name: cloud-native-appdev-lab-role
         tasks_from: app-loki
 
 - name: promtail
@@ -131,7 +131,7 @@
     recreate: false
   tasks:
     - include_role:
-        name: local-lab-role
+        name: cloud-native-appdev-lab-role
         tasks_from: app-promtail
 
 - name: kafka
@@ -142,7 +142,7 @@
     recreate: false
   tasks:
     - include_role:
-        name: local-lab-role
+        name: cloud-native-appdev-lab-role
         tasks_from: app-kafka
 
 - name: artemis
@@ -153,7 +153,7 @@
     recreate: false
   tasks:
     - include_role:
-        name: local-lab-role
+        name: cloud-native-appdev-lab-role
         tasks_from: app-artemis
 
 - name: postgres
@@ -164,7 +164,7 @@
     recreate: false
   tasks:
     - include_role:
-        name: local-lab-role
+        name: cloud-native-appdev-lab-role
         tasks_from: app-postgres
 
 - name: adminer
@@ -175,6 +175,6 @@
     recreate: false
   tasks:
     - include_role:
-        name: local-lab-role
+        name: cloud-native-appdev-lab-role
         tasks_from: app-adminer
 
