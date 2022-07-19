@@ -2,7 +2,7 @@
 
 - name: traefik
   hosts:
-    - work.lan
+    - selected
   vars:
     appstate: started
     recreate: true
@@ -13,7 +13,7 @@
 
 - name: registry
   hosts:
-    - work.lan
+    - selected
   vars:
     appstate: started
     recreate: false
@@ -24,7 +24,7 @@
 
 - name: regui
   hosts:
-    - work.lan
+    - selected
   vars:
     appstate: started
     recreate: false
@@ -35,7 +35,7 @@
 
 - name: keycloak
   hosts:
-    - work.lan
+    - selected
   vars:
     appstate: started
     recreate: false
@@ -46,7 +46,7 @@
 
 - name: portainer
   hosts:
-    - work.lan
+    - selected
   vars:
     appstate: started
     recreate: false
@@ -57,7 +57,7 @@
 
 - name: nexus
   hosts:
-    - work.lan
+    - selected
   vars:
     appstate: started
     recreate: false
@@ -69,7 +69,7 @@
 
 - name: prometheus
   hosts:
-    - work.lan
+    - selected
   vars:
     appstate: started
     recreate: false
@@ -80,7 +80,7 @@
 
 - name: grafana-agent
   hosts:
-    - work.lan
+    - selected
   vars:
     appstate: started
     recreate: false
@@ -91,7 +91,7 @@
 
 - name: grafana
   hosts:
-    - work.lan
+    - selected
   vars:
     appstate: started
     recreate: false
@@ -102,7 +102,7 @@
 
 - name: grafana-enterprise
   hosts:
-    - work.lan
+    - selected
   vars:
     appstate: started
     recreate: true
@@ -114,7 +114,7 @@
 
 - name: loki
   hosts:
-    - work.lan
+    - selected
   vars:
     appstate: started
     recreate: false
@@ -125,7 +125,7 @@
 
 - name: promtail
   hosts:
-    - work.lan
+    - selected
   vars:
     appstate: started
     recreate: false
@@ -136,7 +136,7 @@
 
 - name: kafka
   hosts:
-    - work.lan
+    - selected
   vars:
     appstate: started
     recreate: false
@@ -147,7 +147,7 @@
 
 - name: artemis
   hosts:
-    - work.lan
+    - selected
   vars:
     appstate: started
     recreate: false
@@ -158,7 +158,7 @@
 
 - name: postgres
   hosts:
-    - work.lan
+    - selected
   vars:
     appstate: started
     recreate: false
@@ -169,7 +169,7 @@
 
 - name: adminer
   hosts:
-    - work.lan
+    - selected
   vars:
     appstate: started
     recreate: false

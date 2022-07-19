@@ -1,7 +1,7 @@
 ---
 - name: tls
   hosts:
-    - work.lan
+    - selected
   tasks:
     - name: install
       include_role:

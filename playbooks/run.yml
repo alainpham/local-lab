@@ -1,209 +1,69 @@
-# ---
+---
 
-# - name: traefik
-#   hosts:
-#     - work.lan
-#   vars:
-#     appstate: started
-#     recreate: true
-#   tasks:
-#     - include_role:
-#         name: cloud-native-appdev-lab-role
-#         tasks_from: app-traefik
-
-# - name: registry
-#   hosts:
-#     - work.lan
-#   vars:
-#     appstate: started
-#     recreate: false
-#   tasks:
-#     - include_role:
-#         name: cloud-native-appdev-lab-role
-#         tasks_from: app-registry
-
-# - name: regui
-#   hosts:
-#     - work.lan
-#   vars:
-#     appstate: started
-#     recreate: false
-#   tasks:
-#     - include_role:
-#         name: cloud-native-appdev-lab-role
-#         tasks_from: app-regui
-
-- name: keycloak
+- name: traefik
   hosts:
-    - work.lan
+    - selected
   vars:
     appstate: started
     recreate: true
   tasks:
     - include_role:
         name: cloud-native-appdev-lab-role
-        tasks_from: app-keycloak
+        tasks_from: app-traefik
 
-# - name: portainer
-#   hosts:
-#     - work.lan
-#   vars:
-#     appstate: started
-#     recreate: false
-#   tasks:
-#     - include_role:
-#         name: cloud-native-appdev-lab-role
-#         tasks_from: app-portainer
-
-# - name: nexus
-#   hosts:
-#     - work.lan
-#   vars:
-#     appstate: started
-#     recreate: false
-#   tasks:
-#     - include_role:
-#         name: cloud-native-appdev-lab-role
-#         tasks_from: app-nexus
+- name: portainer
+  hosts:
+    - selected
+  vars:
+    appstate: started
+    recreate: false
+  tasks:
+    - include_role:
+        name: cloud-native-appdev-lab-role
+        tasks_from: app-portainer
 
 
-# - name: prometheus
-#   hosts:
-#     - work.lan
-#   vars:
-#     appstate: started
-#     recreate: false
-#   tasks:
-#     - include_role:
-#         name: cloud-native-appdev-lab-role
-#         tasks_from: app-prometheus
+- name: kafka
+  hosts:
+    - selected
+  vars:
+    appstate: started
+    recreate: false
+  tasks:
+    - include_role:
+        name: cloud-native-appdev-lab-role
+        tasks_from: app-kafka
 
-# - name: grafana-agent
-#   hosts:
-#     - work.lan
-#   vars:
-#     appstate: started
-#     recreate: false
-#   tasks:
-#     - include_role:
-#         name: cloud-native-appdev-lab-role
-#         tasks_from: app-grafana-agent
+- name: artemis
+  hosts:
+    - selected
+  vars:
+    appstate: started
+    recreate: false
+  tasks:
+    - include_role:
+        name: cloud-native-appdev-lab-role
+        tasks_from: app-artemis
 
-# - name: grafana
-#   hosts:
-#     - work.lan
-#   vars:
-#     appstate: started
-#     recreate: false
-#   tasks:
-#     - include_role:
-#         name: cloud-native-appdev-lab-role
-#         tasks_from: app-grafana
+- name: postgres
+  hosts:
+    - selected
+  vars:
+    appstate: started
+    recreate: false
+  tasks:
+    - include_role:
+        name: cloud-native-appdev-lab-role
+        tasks_from: app-postgres
 
-# - name: grafana-enterprise
-#   hosts:
-#     - work.lan
-#   vars:
-#     appstate: started
-#     recreate: true
-#   tasks:
-#     - include_role:
-#         name: cloud-native-appdev-lab-role
-#         tasks_from: app-grafana-enterprise
+- name: adminer
+  hosts:
+    - selected
+  vars:
+    appstate: started
+    recreate: false
+  tasks:
+    - include_role:
+        name: cloud-native-appdev-lab-role
+        tasks_from: app-adminer
 
-
-# - name: loki
-#   hosts:
-#     - work.lan
-#   vars:
-#     appstate: started
-#     recreate: false
-#   tasks:
-#     - include_role:
-#         name: cloud-native-appdev-lab-role
-#         tasks_from: app-loki
-
-# - name: promtail
-#   hosts:
-#     - work.lan
-#   vars:
-#     appstate: started
-#     recreate: false
-#   tasks:
-#     - include_role:
-#         name: cloud-native-appdev-lab-role
-#         tasks_from: app-promtail
-
-# - name: kafka
-#   hosts:
-#     - work.lan
-#   vars:
-#     appstate: started
-#     recreate: false
-#   tasks:
-#     - include_role:
-#         name: cloud-native-appdev-lab-role
-#         tasks_from: app-kafka
-
-# - name: artemis
-#   hosts:
-#     - work.lan
-#   vars:
-#     appstate: started
-#     recreate: false
-#   tasks:
-#     - include_role:
-#         name: cloud-native-appdev-lab-role
-#         tasks_from: app-artemis
-
-# - name: postgres
-#   hosts:
-#     - work.lan
-#   vars:
-#     appstate: started
-#     recreate: false
-#   tasks:
-#     - include_role:
-#         name: cloud-native-appdev-lab-role
-#         tasks_from: app-postgres
-
-# - name: adminer
-#   hosts:
-#     - work.lan
-#   vars:
-#     appstate: started
-#     recreate: false
-#   tasks:
-#     - include_role:
-#         name: cloud-native-appdev-lab-role
-#         tasks_from: app-adminer
-
-# - name: debug
-#   hosts:
-#     - work.lan
-#   tasks:
-#     - name: login
-#       ansible.builtin.uri:
-#         url: https://keycloak.work.lan/realms/master/protocol/openid-connect/token
-#         method: POST
-#         body_format: form-urlencoded
-#         body:
-#           grant_type: password
-#           client_id: admin-cli
-#           username: admin
-#           password: password
-#       register: login
-#     - name: debug
-#       ansible.builtin.debug:
-#         msg: "{{ login.json.access_token }}"
-#     - name: get master
-#       ansible.builtin.uri:
-#         url: https://keycloak.work.lan/admin/realms/master
-#         method: GET
-#         headers: 
-#           Authorization: "Bearer {{ login.json.access_token }}"
-#       register: masterjson
-#     - name: debug
-#       ansible.builtin.debug:
-#         msg: "{{ masterjson.json }}"
-      

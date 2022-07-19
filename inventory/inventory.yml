@@ -6,4 +6,15 @@ x86:
       ansible_user: apham
       ansible_python_interpreter: /usr/bin/python3
       arch: linux-amd64
-  
+    sandbox:
+      ansible_connection: ssh
+      ansible_user: cloud-user
+      ansible_python_interpreter: /usr/bin/python3
+      arch: linux-amd64
+
+selected:
+  # children:
+  #   arm:
+  #   x86:
+  hosts:
+    sandbox:

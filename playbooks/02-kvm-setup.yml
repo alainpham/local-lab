@@ -1,7 +1,7 @@
 ---
 - name: kvm
   hosts:
-    - work.lan
+    - selected
   tasks:
     - name: kvm scripts
       include_role:

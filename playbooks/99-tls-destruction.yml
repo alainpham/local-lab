@@ -1,7 +1,7 @@
 ---
 - name: tls-reset
   hosts:
-    - work.lan
+    - selected
   tasks:
     - name: install
       include_role:
