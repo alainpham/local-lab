@@ -1,6 +1,5 @@
 ---
-
-- name: traefik
+- name: start-services
   hosts:
     - selected
   vars:
@@ -9,61 +8,23 @@
   tasks:
     - include_role:
         name: cloud-native-appdev-lab-role
-        tasks_from: app-traefik
-
-- name: portainer
-  hosts:
-    - selected
-  vars:
-    appstate: started
-    recreate: false
-  tasks:
-    - include_role:
-        name: cloud-native-appdev-lab-role
-        tasks_from: app-portainer
-
-
-- name: kafka
-  hosts:
-    - selected
-  vars:
-    appstate: started
-    recreate: false
-  tasks:
-    - include_role:
-        name: cloud-native-appdev-lab-role
-        tasks_from: app-kafka
-
-- name: artemis
-  hosts:
-    - selected
-  vars:
-    appstate: started
-    recreate: false
-  tasks:
-    - include_role:
-        name: cloud-native-appdev-lab-role
-        tasks_from: app-artemis
-
-- name: postgres
-  hosts:
-    - selected
-  vars:
-    appstate: started
-    recreate: false
-  tasks:
-    - include_role:
-        name: cloud-native-appdev-lab-role
-        tasks_from: app-postgres
-
-- name: adminer
-  hosts:
-    - selected
-  vars:
-    appstate: started
-    recreate: false
-  tasks:
-    - include_role:
-        name: cloud-native-appdev-lab-role
-        tasks_from: app-adminer
-
+        tasks_from: app-{{ rolesvar }}
+      loop:
+        # - traefik
+        # - registry
+        # - regui
+        # - keycloak
+        # - portainer
+        # - nexus
+        # - prometheus
+        # - grafana-agent
+        - grafana
+        - grafana-enterprise
+        - loki
+        - promtail
+        # - kafka
+        # - artemis
+        # - postgres
+        # - adminer
+      loop_control:
+        loop_var: rolesvar

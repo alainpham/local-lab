@@ -1,7 +1,7 @@
 ---
 - name: kvm
   hosts:
-    - selected
+    - x86
   tasks:
     - name: kvm scripts
       include_role:

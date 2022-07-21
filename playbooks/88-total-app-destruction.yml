@@ -1,180 +1,29 @@
 ---
-
-- name: traefik
-  hosts:
-    - selected
-  vars:
-    appstate: absent
-    recreate: true
-  tasks:
-    - include_role:
-        name: cloud-native-appdev-lab-role
-        tasks_from: app-traefik
-
-- name: registry
+- name: start-services
   hosts:
     - selected
   vars:
     appstate: absent
     recreate: false
+    purge: true
   tasks:
     - include_role:
         name: cloud-native-appdev-lab-role
-        tasks_from: app-registry
-
-- name: regui
-  hosts:
-    - selected
-  vars:
-    appstate: absent
-    recreate: false
-  tasks:
-    - include_role:
-        name: cloud-native-appdev-lab-role
-        tasks_from: app-regui
-
-- name: keycloak
-  hosts:
-    - selected
-  vars:
-    appstate: absent
-    recreate: false
-  tasks:
-    - include_role:
-        name: cloud-native-appdev-lab-role
-        tasks_from: app-keycloak
-
-- name: portainer
-  hosts:
-    - selected
-  vars:
-    appstate: absent
-    recreate: false
-  tasks:
-    - include_role:
-        name: cloud-native-appdev-lab-role
-        tasks_from: app-portainer
-
-- name: nexus
-  hosts:
-    - selected
-  vars:
-    appstate: absent
-    recreate: false
-  tasks:
-    - include_role:
-        name: cloud-native-appdev-lab-role
-        tasks_from: app-nexus
-
-
-- name: prometheus
-  hosts:
-    - selected
-  vars:
-    appstate: absent
-    recreate: false
-  tasks:
-    - include_role:
-        name: cloud-native-appdev-lab-role
-        tasks_from: app-prometheus
-
-- name: grafana-agent
-  hosts:
-    - selected
-  vars:
-    appstate: absent
-    recreate: false
-  tasks:
-    - include_role:
-        name: cloud-native-appdev-lab-role
-        tasks_from: app-grafana-agent
-
-- name: grafana
-  hosts:
-    - selected
-  vars:
-    appstate: absent
-    recreate: false
-  tasks:
-    - include_role:
-        name: cloud-native-appdev-lab-role
-        tasks_from: app-grafana
-
-- name: grafana-enterprise
-  hosts:
-    - selected
-  vars:
-    appstate: absent
-    recreate: true
-  tasks:
-    - include_role:
-        name: cloud-native-appdev-lab-role
-        tasks_from: app-grafana-enterprise
-
-
-- name: loki
-  hosts:
-    - selected
-  vars:
-    appstate: absent
-    recreate: false
-  tasks:
-    - include_role:
-        name: cloud-native-appdev-lab-role
-        tasks_from: app-loki
-
-- name: promtail
-  hosts:
-    - selected
-  vars:
-    appstate: absent
-    recreate: false
-  tasks:
-    - include_role:
-        name: cloud-native-appdev-lab-role
-        tasks_from: app-promtail
-
-- name: kafka
-  hosts:
-    - selected
-  vars:
-    appstate: absent
-    recreate: false
-  tasks:
-    - include_role:
-        name: cloud-native-appdev-lab-role
-        tasks_from: app-kafka
-
-- name: artemis
-  hosts:
-    - selected
-  vars:
-    appstate: absent
-    recreate: false
-  tasks:
-    - include_role:
-        name: cloud-native-appdev-lab-role
-        tasks_from: app-artemis
-
-- name: postgres
-  hosts:
-    - selected
-  vars:
-    appstate: absent
-    recreate: false
-  tasks:
-    - include_role:
-        name: cloud-native-appdev-lab-role
-        tasks_from: app-postgres
-
-- name: adminer
-  hosts:
-    - selected
-  vars:
-    appstate: absent
-    recreate: false
-  tasks:
-    - include_role:
-        name: cloud-native-appdev-lab-role
-        tasks_from: app-adminer
-
+        tasks_from: app-{{ item }}
+      loop:
+        - traefik
+        - registry
+        - regui
+        - keycloak
+        - portainer
+        - nexus
+        - prometheus
+        - grafana-agent
+        - grafana
+        - grafana-enterprise
+        - loki
+        - promtail
+        - kafka
+        - artemis
+        - postgres
+        - adminer
