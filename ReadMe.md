@@ -17,4 +17,4 @@ https://github.com/alainpham/cloud-native-appdev-lab-role
 
 ## Component Architecture
 
-![architecture](assets/achi.svg)
+![architecture](assets/architecture.png)
