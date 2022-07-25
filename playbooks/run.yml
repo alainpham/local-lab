@@ -15,11 +15,11 @@
         - regui
         - keycloak
         - portainer
-        - nexus
+        # - nexus
         - prometheus
         # - grafana-agent
         - grafana
-        - grafana-enterprise
+        # - grafana-enterprise
         - grafana-alpha
         - loki
         - promtail
