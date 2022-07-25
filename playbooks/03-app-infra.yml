@@ -27,3 +27,5 @@
         - artemis
         - postgres
         - adminer
+      loop_control:
+        loop_var: rolesvar
