@@ -8,7 +8,7 @@
   tasks:
     - include_role:
         name: cloud-native-appdev-lab-role
-        tasks_from: app-{{ item }}
+        tasks_from: app-{{ rolesvar }}
       loop:
         - traefik
         - registry
