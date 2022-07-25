@@ -19,4 +19,4 @@ selected:
   #   x86:
   #   vms:
   hosts:
-    sandbox.lan:
+    work.lan:
