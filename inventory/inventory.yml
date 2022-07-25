@@ -16,7 +16,7 @@ vms:
 
 selected:
   # children:
-  #   arm:
   #   x86:
+  #   vms:
   hosts:
     work.lan:

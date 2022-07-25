@@ -3,12 +3,13 @@
   hosts:
     - selected
   vars:
-    appstate: started
-    recreate: true
+    appstate: absent
+    recreate: false
+    purge: true
   tasks:
     - include_role:
         name: cloud-native-appdev-lab-role
-        tasks_from: app-{{ rolesvar }}
+        tasks_from: app-{{ item }}
       loop:
         # - traefik
         # - registry
@@ -20,12 +21,9 @@
         # - grafana-agent
         # - grafana
         # - grafana-enterprise
-        - grafana-alpha
-        # - loki
+        - loki
         # - promtail
         # - kafka
         # - artemis
         # - postgres
         # - adminer
-      loop_control:
-        loop_var: rolesvar

@@ -20,6 +20,7 @@
         - grafana-agent
         - grafana
         - grafana-enterprise
+        - grafana-alpha
         - loki
         - promtail
         - kafka

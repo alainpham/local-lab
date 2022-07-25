@@ -15,4 +15,4 @@
     - name: install
       include_role:
         name: cloud-native-appdev-lab-role
-        tasks_from: server-install
+        tasks_from: server-install-essentials
