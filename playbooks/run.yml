@@ -10,22 +10,22 @@
         name: cloud-native-appdev-lab-role
         tasks_from: app-{{ rolesvar }}
       loop:
-        # - traefik
-        # - registry
-        # - regui
-        # - keycloak
-        # - portainer
-        # - nexus
-        # - prometheus
+        - traefik
+        - registry
+        - regui
+        - keycloak
+        - portainer
+        - nexus
+        - prometheus
         # - grafana-agent
-        # - grafana
-        # - grafana-enterprise
+        - grafana
+        - grafana-enterprise
         - grafana-alpha
-        # - loki
-        # - promtail
-        # - kafka
-        # - artemis
-        # - postgres
-        # - adminer
+        - loki
+        - promtail
+        - kafka
+        - artemis
+        - postgres
+        - adminer
       loop_control:
         loop_var: rolesvar
